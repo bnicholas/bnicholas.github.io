@@ -4,7 +4,7 @@ self.addEventListener('install', function (event) {
       return cache.addAll([
         'index.html',
         'style.css',
-        'index.js',
+        // 'index.js',
         'images/splash/360x640.png',
         'images/splash/640x960.png',
         'images/splash/640x1136.png',
