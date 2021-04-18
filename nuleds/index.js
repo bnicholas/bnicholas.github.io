@@ -1,4 +1,7 @@
-console.log('AHOY')
+const werd = "placeat"
+
+
+console.log(werd)
 
 // register service worker
 if ('serviceWorker' in navigator) {
