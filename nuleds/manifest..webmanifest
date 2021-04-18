@@ -1,0 +1,31 @@
+{
+  "short_name": "NuLEDs",
+  "name": "NuLEDs BLE Test",
+  "icons": [
+    {
+      "src": "/images/app-icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/app-icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#091C2D",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#091C2D",
+  "shortcuts": [
+  ],
+  "description": "UI For BLE module",
+  "screenshots": [
+    {
+      "src": "/images/splash.png",
+      "type": "image/png",
+      "sizes": "540x720"
+    }
+  ]
+}
