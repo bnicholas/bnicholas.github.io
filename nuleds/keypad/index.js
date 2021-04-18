@@ -21,6 +21,9 @@ const characteristicUID = "49535343-1E4D-4BD9-BA61-23C647249616"
 const scanButton = document.getElementById('scan')
 
 scanButton.addEventListener('touchstart', async e => {
+  if (!navigator.bluetooth) {
+    window.alert('NOPE')
+  }
   const device = await navigator.bluetooth.requestDevice({
     acceptAllDevices: true
   })
