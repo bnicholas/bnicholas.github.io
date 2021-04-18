@@ -1,5 +1,4 @@
-const werd = "placeat"
-
+const werd = "quia"
 
 console.log(werd)
 
