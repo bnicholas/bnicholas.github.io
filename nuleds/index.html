@@ -7,98 +7,35 @@
   <title>HTML PWA</title>
   <meta name="description" content="HTML Progressive Web App made with zUIx.js">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
-  <!-- Progressive Web App -->
   <meta name="theme-color" content="#f5f8fa">
-  <link rel="manifest" href="/manifest.json">
-  <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
-  <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="A zUIx website">
-  <!-- Tile color for Windows -->
+  <meta name="apple-mobile-web-app-title" content="NuLEDs 6 Button">
   <meta name="msapplication-TileImage" content="images/app-icon-150.png">
   <meta name="msapplication-TileColor" content="#ffc40d">
-  <!-- Place favicon.ico in the root directory -->
+  <link href="/manifest.json" rel="manifest">
   <link href="/images/app-icon-512.png" rel="apple-touch-icon-precomposed">
   <link href="/images/safari-tab.svg" rel="mask-icon" color="#5bbad5">
   <link href="/images/app-icon-192.png" rel="icon" sizes="192x192">
   <link href="/images/app-icon-512.png" rel="icon" sizes="512x512">
   <link href="/images/favicon-32.png" rel="icon" type="image/png" sizes="32x32">
   <link href="/images/favicon-16.png" rel="icon" type="image/png" sizes="16x16">
-
-  <!-- Material Design Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="style.css">
-  <!-- main app script -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/minireset.css/0.0.2/minireset.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
   <script src="index.js" defer></script>
 </head>
 <!-- load the 'header_auto_hide' on the body -->
 
 <body>
-  <!-- The header with profile icon button for opening the drawer layout (side menu panel) -->
-  <header data-ui-include="layout/header" data-ui-options="options.headerBar" data-ui-field="header-bar"></header>
-  <main data-ui-field="pages">
-    <!-- HOME -->
-    <section data-ui-include="pages/home">
-      <button id="scan">Scan For BTLE Device</button>
-      <button class="btn" id="bt1" value="(EE_6BC,32,PB1SC)\r\n">Button One</button>
-      <button class="btn" id="bt2" value="(EE_6BC,32,PB2SC)\r\n">Button Two</button>
-      <button class="btn" id="bt2" value="(EE_6BC,32,PB3SC)\r\n">Button Three</button>
-      <button class="btn" id="bt2" value="(EE_6BC,32,PB4SC)\r\n">Button Four</button>
-      <button class="btn" id="bt2" value="(EE_6BC,32,PB5SC)\r\n">Button Five</button>
-      <button class="btn" id="bt2" value="(EE_6BC,32,PB6SC)\r\n">Button Six</button>
-    </section>
-    <!-- NOTIFICATIONS -->
-    <section data-ui-include="pages/notifications"></section>
-  </main>
-  <!-- The footer with toolbar buttons -->
-  <footer data-ui-include="layout/footer" data-ui-options="options.footerBar" data-ui-field="footer-bar"></footer>
-  <!-- The DrawerLayout for side menu panel -->
-  <div data-ui-load="@lib/controllers/drawer_layout" data-ui-options="options.drawerLayout" class="drawer" draggable="false">
-    <!-- Add Navigation Drawer content -->
-    <div data-ui-include="shared/main_menu"></div>
-  </div>
-  <noscript>
-    Turn on JavaScript to access this site content.
-  </noscript>
+  <button class="btn" id="scan">Scan For BTLE Device</button>
+  <button class="btn" id="bt1" value="(EE_6BC,32,PB1SC)\r\n">Button One</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB2SC)\r\n">Button Two</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB3SC)\r\n">Button Three</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB4SC)\r\n">Button Four</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB5SC)\r\n">Button Five</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB6SC)\r\n">Button Six</button>
 </body>
-
-<script>
-  console.log('AHOY')
-  let btDevice = null
-  const serviceUID = "49535343-FE7D-4AE5-8FA9-9FAFD205E455"
-  const characteristicUID = "49535343-1E4D-4BD9-BA61-23C647249616"
-  const scanButton = document.getElementById('scan')
-
-  scanButton.addEventListener('click', async e => {
-    const device = await navigator.bluetooth.requestDevice({
-      acceptAllDevices: true
-    })
-    const server = await device.gatt.connect()
-    console.log(device)
-    console.log(server)
-    console.log(`BluetoothDevice.id ${device.id}`)
-    console.log(`BluetoothDevice.name ${device.name}`)
-    console.log(`BluetoothDevice.gatt ${device.gatt}`)
-    console.log(`BluetoothDevice.uuids ${device.uuids}`)
-    if (server.connected) alert(`${device.name} Connected`)
-    // const service = await server.getPrimaryService('heart_rate')
-    // const handleBodySensorLocationCharacteristic = await service.getCharacteristic('body_sensor_location')
-    // const handleHeartRateMeasurementCharacteristic = await service.getCharacteristic('heart_rate_measurement')
-  })
-
-  const buttons = Array.from(document.getElementsByClassName('btn'))
-
-  buttons.forEach(b => {
-    b.addEventListener('click', async e => {
-      const value = e.target.value
-      console.log(`BUTTON CLICK ${value}`)
-    })
-  })
-
-</script>
 
 </html>

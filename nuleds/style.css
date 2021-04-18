@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+  min-height: 100vh;
+  max-height: 100vh;
+  min-width: 100vw;
+  max-width: 100vw;
+  padding: 1rem;
+}
+
+.btn {
+  display: block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
