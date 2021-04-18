@@ -6,7 +6,7 @@
   "name": "NuLEDs BLE Test",
   "scope": "/",
   "short_name": "NuLEDs",
-  "start_url": "/",
+  "start_url": "/nuleds",
   "theme_color": "#091C2D",
   "icons": [
     {
