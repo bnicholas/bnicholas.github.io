@@ -4,7 +4,7 @@
   "description": "UI For BLE module",
   "display": "fullscreen",
   "name": "NuLEDs BLE Test",
-  "scope": "/",
+  "scope": "/nuleds",
   "short_name": "NuLEDs",
   "start_url": "/nuleds",
   "theme_color": "#091C2D",
