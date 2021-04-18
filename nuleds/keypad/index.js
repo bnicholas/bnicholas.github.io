@@ -20,6 +20,10 @@ const serviceUID = "49535343-FE7D-4AE5-8FA9-9FAFD205E455"
 const characteristicUID = "49535343-1E4D-4BD9-BA61-23C647249616"
 const scanButton = document.getElementById('scan')
 
+scanButton.addEventListener('touchend', e => {
+  window.alert('TOUCH END')
+})
+
 scanButton.addEventListener('touchstart', async e => {
   if (!navigator.bluetooth) {
     window.alert('NOPE')
