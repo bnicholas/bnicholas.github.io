@@ -2,7 +2,7 @@ const werd = "quia"
 
 console.log(werd)
 
-window.alert('AHOY')
+window.alert('YO')
 
 // register service worker
 if ('serviceWorker' in navigator) {
