@@ -10,98 +10,98 @@
   "theme_color": "#091C2D",
   "icons": [
     {
-      "src": "images/app-icon/512.png",
+      "src": "../images/app-icon/512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "images/splash/4096x4096.png",
+      "src": "../images/splash/4096x4096.png",
       "sizes": "4096x",
       "type": "image/png"
     },
     {
-      "src": "images/splash/640x1136.png",
+      "src": "../images/splash/640x1136.png",
       "sizes": "640x1136",
       "type": "image/png"
     },
     {
-      "src": "images/splash/828x1792.png",
+      "src": "../images/splash/828x1792.png",
       "sizes": "828x1792",
       "type": "image/png"
     },
     {
-      "src": "images/splash/768x1024.png",
+      "src": "../images/splash/768x1024.png",
       "sizes": "768x1024",
       "type": "image/png"
     },
     {
-      "src": "images/splash/750x1334.png",
+      "src": "../images/splash/750x1334.png",
       "sizes": "750x1334",
       "type": "image/png"
     },
     {
-      "src": "images/splash/640x960.png",
+      "src": "../images/splash/640x960.png",
       "sizes": "640x960",
       "type": "image/png"
     },
     {
-      "src": "images/splash/4096x4096.png",
+      "src": "../images/splash/4096x4096.png",
       "sizes": "4096x4096",
       "type": "image/png"
     },
     {
-      "src": "images/splash/360x640.png",
+      "src": "../images/splash/360x640.png",
       "sizes": "360x640",
       "type": "image/png"
     },
     {
-      "src": "images/splash/2688x1242.png",
+      "src": "../images/splash/2688x1242.png",
       "sizes": "2688x1242",
       "type": "image/png"
     },
     {
-      "src": "images/splash/2436x1125.png",
+      "src": "../images/splash/2436x1125.png",
       "sizes": "2436x1125",
       "type": "image/png"
     },
     {
-      "src": "images/splash/2208x1242.png",
+      "src": "../images/splash/2208x1242.png",
       "sizes": "2208x1242",
       "type": "image/png"
     },
     {
-      "src": "images/splash/2048x1536.png",
+      "src": "../images/splash/2048x1536.png",
       "sizes": "2048x1536",
       "type": "image/png"
     },
     {
-      "src": "images/splash/1792x828.png",
+      "src": "../images/splash/1792x828.png",
       "sizes": "1792x828",
       "type": "image/png"
     },
     {
-      "src": "images/splash/1536x2048.png",
+      "src": "../images/splash/1536x2048.png",
       "sizes": "1536x2048",
       "type": "image/png"
     },
     {
-      "src": "images/splash/1242x2688.png",
+      "src": "../images/splash/1242x2688.png",
       "sizes": "1242x2688",
       "type": "image/png"
     },
     {
-      "src": "images/splash/1242x2208.png",
+      "src": "../images/splash/1242x2208.png",
       "sizes": "1242x2208",
       "type": "image/png"
     },
     {
-      "src": "images/splash/1125x2436.png",
+      "src": "../images/splash/1125x2436.png",
       "sizes": "1125x2436",
       "type": "image/png"
     },
     {
-      "src": "images/splash/1024x768.png",
+      "src": "../images/splash/1024x768.png",
       "sizes": "1024x768",
       "type": "image/png"
     }
