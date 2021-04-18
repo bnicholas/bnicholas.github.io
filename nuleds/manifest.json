@@ -7,7 +7,7 @@
 
   "short_name": "NuLEDs",
   "scope": "/nuleds",
-  "start_url": "/nuleds",
+  "start_url": "/nuleds/index.html",
   "theme_color": "#091C2D",
   "icons": [
     {
