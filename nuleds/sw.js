@@ -2,9 +2,9 @@ self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open('v1').then(function (cache) {
       return cache.addAll([
-        'index.html',
+        'keypad.html',
         'style.css',
-        // 'index.js',
+        'index.js',
         'images/splash/360x640.png',
         'images/splash/640x960.png',
         'images/splash/640x1136.png',
