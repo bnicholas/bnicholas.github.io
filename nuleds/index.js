@@ -1,4 +1,16 @@
 console.log('AHOY')
+
+// register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js', { scope: '/' }).then(function(reg) {
+    if (reg.installing) { console.log('Service worker installing') }
+    else if (reg.waiting) { console.log('Service worker installed') }
+    else if (reg.active) { console.log('Service worker active'); }
+  }).catch(function(error) {
+    console.log('Registration failed with ' + error);
+  });
+}
+
 let btDevice = null
 const serviceUID = "49535343-FE7D-4AE5-8FA9-9FAFD205E455"
 const characteristicUID = "49535343-1E4D-4BD9-BA61-23C647249616"
