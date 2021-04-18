@@ -4,7 +4,6 @@
   "description": "UI For BLE module",
   "display": "fullscreen",
   "name": "NuLEDs BLE Test",
-
   "short_name": "NuLEDs",
   "scope": "/nuleds",
   "start_url": "/nuleds/index.html",
