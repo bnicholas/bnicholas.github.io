@@ -38,7 +38,7 @@ scanButton.addEventListener('click', async e => {
 const buttons = Array.from(document.getElementsByClassName('btn'))
 
 buttons.forEach(b => {
-  b.addEventListener('click', async e => {
+  b.addEventListener('touchstart', async e => {
     const value = e.target.value
     console.log(`BUTTON CLICK ${value}`)
   })
