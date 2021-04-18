@@ -2,6 +2,8 @@ const werd = "quia"
 
 console.log(werd)
 
+window.alert('AHOY')
+
 // register service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/nuleds/sw.js', { scope: '/nuleds/' }).then(function (reg) {
@@ -33,7 +35,7 @@ scanButton.addEventListener('touchstart', async e => {
   // const service = await server.getPrimaryService('heart_rate')
   // const handleBodySensorLocationCharacteristic = await service.getCharacteristic('body_sensor_location')
   // const handleHeartRateMeasurementCharacteristic = await service.getCharacteristic('heart_rate_measurement')
-  alert('TOUCH')
+  window.alert('TOUCH')
 })
 
 const buttons = Array.from(document.getElementsByClassName('btn'))
