@@ -18,7 +18,7 @@ const serviceUID = "49535343-FE7D-4AE5-8FA9-9FAFD205E455"
 const characteristicUID = "49535343-1E4D-4BD9-BA61-23C647249616"
 const scanButton = document.getElementById('scan')
 
-scanButton.addEventListener('click', async e => {
+scanButton.addEventListener('touchstart', async e => {
   const device = await navigator.bluetooth.requestDevice({
     acceptAllDevices: true
   })
@@ -33,6 +33,7 @@ scanButton.addEventListener('click', async e => {
   // const service = await server.getPrimaryService('heart_rate')
   // const handleBodySensorLocationCharacteristic = await service.getCharacteristic('body_sensor_location')
   // const handleHeartRateMeasurementCharacteristic = await service.getCharacteristic('heart_rate_measurement')
+  alert('TOUCH')
 })
 
 const buttons = Array.from(document.getElementsByClassName('btn'))
