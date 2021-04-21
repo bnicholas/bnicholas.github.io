@@ -1,9 +1,3 @@
-const werd = "quia"
-
-console.log(werd)
-
-// window.alert('YO')
-
 // register service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/nuleds/sw.js', {
