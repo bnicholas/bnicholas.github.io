@@ -2,54 +2,60 @@ const werd = "quia"
 
 console.log(werd)
 
-window.alert('YO')
+// window.alert('YO')
 
 // register service worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/nuleds/sw.js', { scope: '/nuleds/' }).then(function (reg) {
-    if (reg.installing) { console.log('Service worker installing') }
-    else if (reg.waiting) { console.log('Service worker installed') }
-    else if (reg.active) { console.log('Service worker active'); }
-  }).catch(function(error) {
+  navigator.serviceWorker.register('/nuleds/sw.js', {
+    scope: '/nuleds/'
+  }).then(function (reg) {
+    if (reg.installing) {
+      console.log('Service worker installing')
+    } else if (reg.waiting) {
+      console.log('Service worker installed')
+    } else if (reg.active) {
+      console.log('Service worker active');
+    }
+  }).catch(function (error) {
     console.log('Registration failed with ' + error);
   });
 }
 
-let btDevice = null
-const serviceUID = "49535343-FE7D-4AE5-8FA9-9FAFD205E455"
-const characteristicUID = "49535343-1E4D-4BD9-BA61-23C647249616"
-const scanButton = document.getElementById('scan')
+const encoder = new TextEncoder()
+const serviceUID = "49535343-fe7d-4ae5-8fa9-9fafd205e455"
+const characteristicUID = "49535343-1e4d-4bd9-ba61-23c647249616"
+const onHard = "(NC_Z0A255R255G255B255W255F0)"
+const _onHard = encoder.encode(onHard)
+const offHard = "(NC_Z0A255R0G0B0W0F0)"
+const _offHard = encoder.encode(offHard)
+const nuBlu = { server: null, device: null }
 
-scanButton.addEventListener('touchend', e => {
-  window.alert('TOUCH END')
-})
-
-scanButton.addEventListener('touchstart', async e => {
-  if (!navigator.bluetooth) {
-    window.alert('NOPE')
-  }
-  const device = await navigator.bluetooth.requestDevice({
+const handleScan = async e => {
+  if (!navigator.bluetooth) alert('NO WEB BLE')
+  nuBlu.device = await navigator.bluetooth.requestDevice({
+    optionalServices: [serviceUID],
     acceptAllDevices: true
   })
-  const server = await device.gatt.connect()
-  console.log(device)
-  console.log(server)
-  console.log(`BluetoothDevice.id ${device.id}`)
-  console.log(`BluetoothDevice.name ${device.name}`)
-  console.log(`BluetoothDevice.gatt ${device.gatt}`)
-  console.log(`BluetoothDevice.uuids ${device.uuids}`)
-  if (server.connected) alert(`${device.name} Connected`)
-  // const service = await server.getPrimaryService('heart_rate')
-  // const handleBodySensorLocationCharacteristic = await service.getCharacteristic('body_sensor_location')
-  // const handleHeartRateMeasurementCharacteristic = await service.getCharacteristic('heart_rate_measurement')
-  window.alert('TOUCH')
-})
+  nuBlu.server = await nuBlu.device.gatt.connect()
+  if (nuBlu.server.connected) {
+    alert(`${nuBlu.device.name} Connected`)
+    nuBlu.service = await nuBlu.server.getPrimaryService(serviceUID)
+    nuBlu.char = await nuBlu.service.getCharacteristic(characteristicUID)
+    nuBlu.onHard = () => nuBlu.char.writeValue(_onHard)
+    nuBlu.offHard = () => nuBlu.char.writeValue(_offHard)
 
-const buttons = Array.from(document.getElementsByClassName('btn'))
+    // ADD EVENTS TO ALL THE SCENE BUTTONS
+    const buttons = Array.from(document.getElementsByClassName('btn'))
+    buttons.forEach(b => {
+      b.addEventListener('click', async e => {
+        const value = encoder.encode(e.target.value)
+        nuBlu.char.writeValue(value)
+        console.log(`BUTTON CLICK ${value}`)
+      })
+    })
+  }
+}
 
-buttons.forEach(b => {
-  b.addEventListener('touchstart', async e => {
-    const value = e.target.value
-    console.log(`BUTTON CLICK ${value}`)
-  })
-})
+// SCAN BUTTON EVENT
+const scanButton = document.getElementById('scan')
+scanButton.addEventListener('click', handleScan)
