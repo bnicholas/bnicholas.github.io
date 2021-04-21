@@ -7,10 +7,16 @@ body {
   padding: 1rem;
 }
 
-.btn {
+button {
   display: block;
   padding: 1rem;
   margin-bottom: 1rem;
   width: 100%;
   cursor: pointer;
+}
+
+button.test {
+  background: red;
+  color: #fff;
+  border: none;
 }
