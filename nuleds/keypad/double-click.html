@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HTML PWA</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="description" content="HTML Progressive Web App made with zUIx.js">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="msapplication-tap-highlight" content="no">
+  <meta name="theme-color" content="#f5f8fa">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="NuLEDs 6 Button">
+  <meta name="msapplication-TileImage" content="../images/app-icon-150.png">
+  <meta name="msapplication-TileColor" content="#ffc40d">
+  <link href="manifest.json" rel="manifest">
+  <link href="../images/splash/4096x4096.png" rel="apple-touch-startup-image">
+  <link href="../images/app-icon/512.png" rel="apple-touch-icon-precomposed">
+  <link href="../images/safari-tab.svg" rel="mask-icon" color="#5bbad5">
+  <link href="../images/app-icon/192.png" rel="icon" sizes="192x192">
+  <link href="../images/app-icon/512.png" rel="icon" sizes="512x512">
+  <link href="../images/favicon/32.png" rel="icon" type="image/png" sizes="32x32">
+  <link href="../images/favicon/16.png" rel="icon" type="image/png" sizes="16x16">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/minireset.css/0.0.2/minireset.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+</head>
+<!-- load the 'header_auto_hide' on the body -->
+
+<body>
+  <button class="btn" id="scan">Scan For BTLE Device</button>
+  <button class="btn" id="bt1" value="(EE_6BC,32,PB1SC)">Button One</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB2SC)">Button Two</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB3SC)">Button Three</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB4SC)">Button Four</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB5SC)">Button Five</button>
+  <button class="btn" id="bt2" value="(EE_6BC,32,PB6SC)">Button Six</button>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
