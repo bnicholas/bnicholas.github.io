@@ -104,7 +104,7 @@ const handleScan = async e => {
       })
     })
 
-    hints.innerHTML = 'Click on the background to activate mic. Ive only loosely accounted for ON, OFF, BAM, BANG, SKADOOSH & SHAZAM ... the logic is all still rough'
+    hints.innerHTML = 'Click on the background to activate mic. Ive only loosely accounted for ON, OFF, BAM, BANG, SKADOOSH & SHAZAM ... the logic is all still rough. If you start with OFF or ON, the other toggle commands will work in proper sync.'
 
     document.body.onclick = function () {
       recognition.start()
