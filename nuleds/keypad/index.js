@@ -104,7 +104,7 @@ const handleScan = async e => {
       })
     })
 
-    hints.innerHTML = 'Tap/click then say a command to make things happen. Try saying Shazam!'
+    hints.innerHTML = 'Click on the background to activate mic. Ive only loosely accounted for ON, OFF, BAM, BANG, SKADOOSH & SHAZAM ... the logic is all still rough'
 
     document.body.onclick = function () {
       recognition.start()
