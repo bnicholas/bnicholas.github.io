@@ -7,6 +7,17 @@ body {
   padding: 1rem;
 }
 
+blockquote {
+  padding: 1rem;
+  border: 2px solid lightblue;
+  background: lightskyblue;
+  margin: 40px 200px;
+  line-height: 1.5em;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  color: darkslategrey;
+}
+
 button {
   display: block;
   padding: 1rem;
@@ -19,4 +30,19 @@ button.test {
   background: red;
   color: #fff;
   border: none;
+}
+
+#micButton {
+  font-size: 4rem;
+  cursor: pointer;
+  display: inline-block;
+}
+
+#micButton.disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
+
+#micButton.active {
+  text-shadow: 0px 0px 21px red;
 }

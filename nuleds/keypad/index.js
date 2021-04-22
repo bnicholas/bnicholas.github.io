@@ -9,6 +9,8 @@ const characteristicUID = "49535343-1e4d-4bd9-ba61-23c647249616"
 const onHard = "(NC_Z0A255R255G255B255W255F0)"
 const offHard = "(NC_Z0A255R0G0B0W0F0)"
 
+const micButton = document.getElementById('micButton')
+
 function sendCommand() {
   debounce = setTimeout(() => {
     nu.char.writeValue(encoder.encode(nu.command))
@@ -64,7 +66,8 @@ recognition.onresult = function(event) {
     nu.on = true
   }
   diagnostic.textContent = `Result received: ${command}`;
-  console.log(`Confidence: ${howSure}` );
+  console.log(`Confidence: ${howSure}`);
+  micButton.className = "enabled"
 
 }
 recognition.onspeechend = function() {
@@ -104,12 +107,15 @@ const handleScan = async e => {
       })
     })
 
-    hints.innerHTML = 'Click on the background to activate mic. Ive only loosely accounted for ON, OFF, BAM, BANG, SKADOOSH & SHAZAM ... the logic is all still rough. If you start with OFF or ON, the other toggle commands will work in proper sync.'
+    hints.innerHTML = '<blockquote>Click the Mic to speak command. Ive only loosely accounted for ON, OFF, BAM, BANG, SKADOOSH & SHAZAM ... the logic is all still rough. If you start with OFF or ON, the other toggle commands will work in proper sync.</blockquote>'
 
-    document.body.onclick = function () {
+
+    micButton.className = 'enabled'
+    micButton.addEventListener('click', () => {
       recognition.start()
+      micButton.className = 'active'
       console.log('Ready to receive a color command.')
-    }
+    })
   }
 }
 
