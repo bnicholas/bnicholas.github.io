@@ -26,6 +26,59 @@ const nu = new Proxy({on: true}, {
   }
 })
 
+const SpeechRecognition = window.SpeechRecognition || webkitSpeechRecognition
+const SpeechGrammarList = window.SpeechGrammarList || webkitSpeechGrammarList
+const SpeechRecognitionEvent = window.SpeechRecognitionEvent || webkitSpeechRecognitionEvent
+
+const commands = ['on', 'off', 'fast', 'slow', 'dimmer', 'brighter', 'darker', 'lighter', 'bam', 'bang', 'skadoosh', 'shazam']
+const toggleCommands = ['bam', 'bang', 'skadoosh', 'shazam']
+const grammar = '#JSGF V1.0; grammar commands; public <command> = ' + commands.join(' | ') + ' ;'
+const recognition = new SpeechRecognition();
+const speechRecognitionList = new SpeechGrammarList();
+speechRecognitionList.addFromString(grammar, 1);
+recognition.grammars = speechRecognitionList;
+recognition.continuous = false;
+recognition.lang = 'en-US';
+recognition.interimResults = false;
+recognition.maxAlternatives = 1;
+
+const diagnostic = document.querySelector('.output')
+const bg = document.querySelector('html')
+const hints = document.querySelector('.hints')
+
+recognition.onresult = function(event) {
+  const command = event.results[0][0].transcript
+  const howSure = event.results[0][0].confidence
+  const cmd = command.toLowerCase()
+  if (toggleCommands.includes(cmd)) {
+    console.log(`Should Send a Toggle ... nu.on = ${nu.on}`)
+    nu.command = nu.on ? offHard : onHard
+    nu.on = !nu.on
+  }
+  if (cmd === "off") {
+    nu.command = offHard
+    nu.on = false
+  }
+  if (cmd === 'on') {
+    nu.command = onHard
+    nu.on = true
+  }
+  diagnostic.textContent = `Result received: ${command}`;
+  console.log(`Confidence: ${howSure}` );
+
+}
+recognition.onspeechend = function() {
+  recognition.stop();
+}
+recognition.onnomatch = function(event) {
+  diagnostic.textContent = "I didn't recognise that command.";
+}
+recognition.onerror = function(event) {
+  diagnostic.textContent = 'Error occurred in recognition: ' + event.error;
+}
+
+
+
 const handleScan = async e => {
   if (!navigator.bluetooth) alert('NO WEB BLE')
   nu.device = await navigator.bluetooth.requestDevice({
@@ -50,6 +103,13 @@ const handleScan = async e => {
         console.log(`CLICK ${nu.command}`)
       })
     })
+
+    hints.innerHTML = 'Tap/click then say a command to make things happen. Try saying Shazam!'
+
+    document.body.onclick = function () {
+      recognition.start()
+      console.log('Ready to receive a color command.')
+    }
   }
 }
 
